@@ -1,4 +1,4 @@
-How to creat a file folder on Github?
+How to create a file folder on Github?
 
   -Go to the resposity where you want to Create the file folder and click the "Create new file"
   
