@@ -1,3 +1,5 @@
+[TOC]
+
 # The basic for a new user
 
 - As a new user you can get started without understanding the technical details.
