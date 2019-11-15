@@ -7,15 +7,17 @@
 6. 插入图片是"\!\[ \](链接)".  
 6.1 相对路径是个坑，在其他地方就打不开了。  
 6.2 把图存在网上，用链接是个好方法，但图片多了，就烦，特别是用VSCODE打开Github desktop编辑时，只知道一个相对路径，没法引用网址链接。  
-6.3 把图片通过python编译成base64码，是*最像插入图片方式的*，但实在是太丧心病狂了。
-``` python
-import base64
-f=open('158255.png','rb') #二进制方式打开图文件
-ls_f=base64.b64encode(f.read()) #读取文件内容，转换为base64编码
-f.close()
-print(ls_f)
-```
-  插入图片：\!\[ \](data:image/png;base64,base64str),其中base64str就是上面代码print出来的base64编码,这串编实在是太长了。
+6.3 把图片通过python编译成base64码，是*最像插入图片方式的*，但实在是太丧心病狂了。  
+插入图片的格式：\!\[ \](data:image/png;base64,base64str),其中base64str就是下面代码print出来的base64编码,这串编实在是太长了。
+
+  ``` python
+  import base64
+  f=open('158255.png','rb') #二进制方式打开图文件
+  ls_f=base64.b64encode(f.read()) #读取文件内容，转换为base64编码
+  f.close()
+  print(ls_f)
+  ```
+  
 7. 用"\&copy;2019"，显示&copy;2019
 ### 问题
 1. 
