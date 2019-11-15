@@ -16,6 +16,6 @@ f.close()
 print(ls_f)
 ```
 插入图片：\!\[ \](data:image/png;base64,base64str),其中base64str就是上面代码print出来的base64编码,这串编实在是太长了。
-
+7. 用"\&copy;2019"，显示&copy;2019
 ### 问题
 1. 
