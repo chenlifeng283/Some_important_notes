@@ -43,3 +43,37 @@ Sub closeFinal()
     wb.Close savechanges:=True
 
 End Sub
+
+' 下面是通过一些“事件”来优化程序
+
+ ' 防止改工作表名称                
+Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+    If Me.Name <> "手工输入发票清单" Then Me.Name = "手工输入发票清单"
+End Sub
+
+                    
+' 根据H5的计算结果来判断有没有输入错误                    
+Private Sub Worksheet_Calculate()
+Dim i As Integer
+    Range("C2:C1000").Interior.ColorIndex = xlNone
+    '每次输入都会触发这个程序,初始化C列的颜色,因为后面代码有错误标红后,
+    ' 想改正后去掉标红,发现找不到合适的位置写这条代码,索性每次回复一遍无底色,
+    ' 再通过下面的代码"有错标红",肯定有更好的办法
+    
+     If Range("H5") <> 0 Then  '每次H5重算后，就判断
+        For i = 2 To 1000
+            If Cells(i, 3) <> "" And Cells(i, 5) <> 0 Then
+            '表格特点：C列为空时，是不会有错的，如果C列填入数据，E列还不是零，那肯定是输错了。
+                Cells(i, 3).Interior.Color = RGB(255, 0, 0)
+                ' Else:  Cells(i, 3).Interior.ColorIndex = xlNone
+            End If
+        Next
+     Else:
+         Exit Sub ' H5为零时就退出程序
+     End If    
+End Sub
+
+
+
+
+
