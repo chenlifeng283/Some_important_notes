@@ -1,3 +1,9 @@
+# 涉及到的知识点：1.怎么通过对话框选择文件，获取文件路径，可以引申为选择文件夹
+                2.跨工作薄粘贴要注意“随时特用的工作表”，以及Public变量申明
+                3.选择性粘贴为数值
+                4.控制不准改工作表
+                5.有公式的单元格无法触发worksheet_change事件，需要通过worksheet_calculate事件
+        
 Option Explicit
 
 Public FileDialogObject As Object
@@ -16,7 +22,6 @@ Sub FilePicker()
     End With
     FileDialogObject.Show
     Set paths = FileDialogObject.SelectedItems
-
 
     p = paths.Item(1) '取选择的文件的路径字符串
     Workbooks.Open Filename:=p '按路径打开文件
