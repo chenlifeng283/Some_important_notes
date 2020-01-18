@@ -1,3 +1,4 @@
+'函数要写在“模块”下
 '判断某区域（arr)里与某一单元格（single_arr)底色相同的单元格个数
 Function color_count(arr as range,single_arr as range)
   Application.volatile True '把函数设为易失性函数，所引用的单元格内容发生变化就会自动重算，调试效果好像有问题。
